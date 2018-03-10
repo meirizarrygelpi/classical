@@ -45,17 +45,29 @@ func And(z, y *Bit) *Bit {
 	return NewBit(z.Value() && y.Value())
 }
 
+// NAnd gate.
+func NAnd(z, y *Bit) *Bit {
+	return NewBit(Not(And(z, y)).Value())
+}
+
 // Or gate.
 func Or(z, y *Bit) *Bit {
 	return NewBit(z.Value() || y.Value())
 }
 
+// NOr gate.
+func NOr(z, y *Bit) *Bit {
+	return NewBit(Not(Or(z, y)).Value())
+}
+
 // XOr gate.
 func XOr(z, y *Bit) *Bit {
-	if z.Value() {
-		return Not(y)
-	}
-	return y
+	return NewBit(z.Value() != y.Value())
+}
+
+// NXOr gate.
+func NXOr(z, y *Bit) *Bit {
+	return NewBit(z.Value() == y.Value())
 }
 
 // FanOut gate.
