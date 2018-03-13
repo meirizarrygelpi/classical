@@ -6,11 +6,9 @@ import (
 	"github.com/meirizarrygelpi/classical"
 )
 
-var booleans = [2]bool{false, true}
-
 func ExampleCopy() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
+	for _, a := range [2]bool{false, true} {
 		y = classical.NewBit(a)
 		classical.Copy(y, z)
 		fmt.Println(y, "|", z)
@@ -22,7 +20,7 @@ func ExampleCopy() {
 
 func ExampleNot() {
 	z := new(classical.Bit)
-	for _, a := range booleans {
+	for _, a := range [2]bool{false, true} {
 		z = classical.NewBit(a)
 		fmt.Println(z, "|", classical.Not(z))
 	}
@@ -33,8 +31,8 @@ func ExampleNot() {
 
 func ExampleAnd() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Println(z, y, "|", classical.And(z, y))
@@ -49,8 +47,8 @@ func ExampleAnd() {
 
 func ExampleNAnd() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Println(z, y, "|", classical.NAnd(z, y))
@@ -65,8 +63,8 @@ func ExampleNAnd() {
 
 func ExampleOr() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Println(z, y, "|", classical.Or(z, y))
@@ -81,8 +79,8 @@ func ExampleOr() {
 
 func ExampleNOr() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Println(z, y, "|", classical.NOr(z, y))
@@ -97,8 +95,8 @@ func ExampleNOr() {
 
 func ExampleXOr() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Println(z, y, "|", classical.XOr(z, y))
@@ -113,8 +111,8 @@ func ExampleXOr() {
 
 func ExampleNXOr() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Println(z, y, "|", classical.NXOr(z, y))
@@ -129,7 +127,7 @@ func ExampleNXOr() {
 
 func ExampleFanOut() {
 	z := new(classical.Bit)
-	for _, a := range booleans {
+	for _, a := range [2]bool{false, true} {
 		z = classical.NewBit(a)
 		fmt.Print(z)
 		fmt.Print(" | ")
@@ -143,8 +141,8 @@ func ExampleFanOut() {
 
 func ExampleSwap() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Print(z, y)
@@ -162,8 +160,8 @@ func ExampleSwap() {
 
 func ExampleCNot() {
 	z, y := new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Print(z, y)
@@ -181,9 +179,9 @@ func ExampleCNot() {
 
 func ExampleFredkin() {
 	z, y, x := new(classical.Bit), new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
-			for _, c := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
+			for _, c := range [2]bool{false, true} {
 				z = classical.NewBit(a)
 				y = classical.NewBit(b)
 				x = classical.NewBit(c)
@@ -208,9 +206,9 @@ func ExampleFredkin() {
 
 func ExampleToffoli() {
 	z, y, x := new(classical.Bit), new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
-			for _, c := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
+			for _, c := range [2]bool{false, true} {
 				z = classical.NewBit(a)
 				y = classical.NewBit(b)
 				x = classical.NewBit(c)
@@ -235,10 +233,10 @@ func ExampleToffoli() {
 
 func ExampleSwap243() {
 	z, y, x, w := new(classical.Bit), new(classical.Bit), new(classical.Bit), new(classical.Bit)
-	for _, a := range booleans {
-		for _, b := range booleans {
-			for _, c := range booleans {
-				for _, d := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
+			for _, c := range [2]bool{false, true} {
+				for _, d := range [2]bool{false, true} {
 					z = classical.NewBit(a)
 					y = classical.NewBit(b)
 					x = classical.NewBit(c)
@@ -274,10 +272,10 @@ func ExampleSwap243() {
 func ExampleCCSwap() {
 	z, y, x, w := new(classical.Bit), new(classical.Bit), new(classical.Bit), new(classical.Bit)
 	v := classical.NewBit(false)
-	for _, a := range booleans {
-		for _, b := range booleans {
-			for _, c := range booleans {
-				for _, d := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
+			for _, c := range [2]bool{false, true} {
+				for _, d := range [2]bool{false, true} {
 					z = classical.NewBit(a)
 					y = classical.NewBit(b)
 					x = classical.NewBit(c)
@@ -314,8 +312,8 @@ func ExampleDeMultiplexer() {
 	z, y := new(classical.Bit), new(classical.Bit)
 	x := classical.NewBit(false)
 	w := classical.NewBit(false)
-	for _, a := range booleans {
-		for _, b := range booleans {
+	for _, a := range [2]bool{false, true} {
+		for _, b := range [2]bool{false, true} {
 			z = classical.NewBit(a)
 			y = classical.NewBit(b)
 			fmt.Print(z, y, x, w)
