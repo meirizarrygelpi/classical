@@ -2,22 +2,17 @@ package classical
 
 // Bit is a classical bit.
 type Bit struct {
-	a bool
+	value bool
 }
 
 // Value returns the boolean value of z.
 func (z *Bit) Value() bool {
-	return z.a
+	return z.value
 }
 
-// SetValue sets the boolean value of z equal to b.
-func (z *Bit) SetValue(b bool) {
-	z.a = b
-}
-
-// Copy copies the value of y onto z.
-func (z *Bit) Copy(y *Bit) {
-	z.SetValue(y.Value())
+// SetValue sets the boolean value of z equal to a.
+func (z *Bit) SetValue(a bool) {
+	z.value = a
 }
 
 // String returns the string version of a classical bit.
@@ -30,9 +25,12 @@ func (z *Bit) String() string {
 
 // NewBit returns a classical bit with boolean value a.
 func NewBit(a bool) *Bit {
-	z := new(Bit)
-	z.SetValue(a)
-	return z
+	return &Bit{a}
+}
+
+// Copy copies the value of z onto y.
+func Copy(z, y *Bit) {
+	y.SetValue(z.Value())
 }
 
 // Not gate (reversible).

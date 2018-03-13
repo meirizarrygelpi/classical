@@ -12,7 +12,7 @@ func ExampleCopy() {
 	z, y := new(classical.Bit), new(classical.Bit)
 	for _, a := range booleans {
 		y = classical.NewBit(a)
-		z.Copy(y)
+		classical.Copy(y, z)
 		fmt.Println(y, "|", z)
 	}
 	// Output:
@@ -47,6 +47,22 @@ func ExampleAnd() {
 	// 1 1 | 1
 }
 
+func ExampleNAnd() {
+	z, y := new(classical.Bit), new(classical.Bit)
+	for _, a := range booleans {
+		for _, b := range booleans {
+			z = classical.NewBit(a)
+			y = classical.NewBit(b)
+			fmt.Println(z, y, "|", classical.NAnd(z, y))
+		}
+	}
+	// Output:
+	// 0 0 | 1
+	// 0 1 | 1
+	// 1 0 | 1
+	// 1 1 | 0
+}
+
 func ExampleOr() {
 	z, y := new(classical.Bit), new(classical.Bit)
 	for _, a := range booleans {
@@ -63,6 +79,22 @@ func ExampleOr() {
 	// 1 1 | 1
 }
 
+func ExampleNOr() {
+	z, y := new(classical.Bit), new(classical.Bit)
+	for _, a := range booleans {
+		for _, b := range booleans {
+			z = classical.NewBit(a)
+			y = classical.NewBit(b)
+			fmt.Println(z, y, "|", classical.NOr(z, y))
+		}
+	}
+	// Output:
+	// 0 0 | 1
+	// 0 1 | 0
+	// 1 0 | 0
+	// 1 1 | 0
+}
+
 func ExampleXOr() {
 	z, y := new(classical.Bit), new(classical.Bit)
 	for _, a := range booleans {
@@ -77,6 +109,22 @@ func ExampleXOr() {
 	// 0 1 | 1
 	// 1 0 | 1
 	// 1 1 | 0
+}
+
+func ExampleNXOr() {
+	z, y := new(classical.Bit), new(classical.Bit)
+	for _, a := range booleans {
+		for _, b := range booleans {
+			z = classical.NewBit(a)
+			y = classical.NewBit(b)
+			fmt.Println(z, y, "|", classical.NXOr(z, y))
+		}
+	}
+	// Output:
+	// 0 0 | 1
+	// 0 1 | 0
+	// 1 0 | 0
+	// 1 1 | 1
 }
 
 func ExampleFanOut() {
