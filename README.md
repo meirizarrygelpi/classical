@@ -13,8 +13,11 @@ This type corresponds to a classical bit, which can have two possible states.
 There are many functions. Some correspond to **irreversible** logic gates:
 
 * `classical.And`
+* `classical.NAnd`
 * `classical.Or`
+* `classical.NOr`
 * `classical.XOr`
+* `classical.NXOr`
 * `classical.FanOut`
 
 The other functions correspond to **reversible** gates:
